@@ -57,6 +57,10 @@ An application that allows users to search for Marvel characters and save them i
 * Comics Page
 ![Comics](./wireframes/Comics.jpg)
 
+## ERD
+
+![an ERD of my project](./ERD.drawio.png)
+
 ## MVP
 * Homepage that allows users to signup / login
 * Have a navbar which leads to a users profile, homepage, favorites, and logout
