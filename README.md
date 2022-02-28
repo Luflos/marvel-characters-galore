@@ -19,6 +19,7 @@ More and more Marvel characters are being added to the MCU (Marvel Cinematic Uni
 | POST     | users/profile/favorites       | Create (create)      |  Creates users favorites and adds it to their favorites page
 | GET     | users/profile/favorites/:id | Show (read)    | show the detrails about a favorite item by the specific id
 | GET     | users/profile/favorites/edit/:id | Edit (read)    | Shows a form to edit certain favorites / rearrange them
+| PUT     | users/profile/favorites/:id | Update (update)    | Updates the users favorites page
 | DELETE | users/profile/favorites/:id       | Destroy (delete)      | deletes the saved favorite by the specific id
 | GET     | /search | Show (read)   | Display the search page
 | GET     | /search/results | Show (read)   | Display the search results
