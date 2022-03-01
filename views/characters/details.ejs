@@ -1,0 +1,34 @@
+<h1> this is the characters page </h1>
+
+<% details.forEach(detail=> { %>
+  <div>
+    <p>
+      Name: <%= detail.name %>
+    </p>
+    <p> 
+      <% if ( detail.description === "") { %>
+        No description provided
+        <%} else { %>
+        Description: <%= detail.description %>
+      <% } %>
+    </p>
+    <p>
+      Comics: <%= detail.comics.available %>
+    </p>
+    <p>
+      Series: <%= detail.series.available %>
+    </p>
+    <p>
+      Stories: <%= detail.stories.available %>
+    </p>
+    <p>
+      Events: <%= detail.events.available %>
+    </p>
+    <p>
+      <img src='<%= detail.thumbnail.path%>/portrait_incredible.jpg' alt="Picture of <%= detail.name %>"/>
+      <%= attribution %>
+    </p>
+  </div>
+  <% }) %>
+
+  

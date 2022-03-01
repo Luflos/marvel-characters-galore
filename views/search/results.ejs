@@ -1,0 +1,22 @@
+<h1>results page</h1>
+
+<% details.forEach(detail=> { %>
+  <div>
+    <p>
+      Name: <%= detail.name %>
+    </p>
+    <p>
+      <% if ( detail.description !== "") { %>
+        Description: <%= detail.description %>
+      <% } %>
+      
+    </p>
+    <p>
+      <img src='<%= detail.thumbnail.path%>/portrait_incredible.jpg' alt="Picture of <%= detail.name %>"/>
+    </p>
+  </div>
+  <h1>
+    <a href="/characters/<%=detail.id %>"> More Details</a>
+
+  </h1>
+  <% }) %>

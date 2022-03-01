@@ -4,7 +4,7 @@ const ejsLayouts = require("express-ejs-layouts");  // import ejs layouts
 const axios = require('axios')
 const cookieParser = require('cookie-parser')
 const cryptoJS = require('crypto-js');
-const db = require("./models/index.js");
+// const db = require("./models/index.js");
 require('dotenv').config();
 
 app.set("view engine", "ejs");  // set the view engine to ejs
@@ -20,7 +20,9 @@ app.get ('/', (req, res) => {
 })
 
 // Controllers
-app.use('/users', require('./controllers/users'))
+
+app.use('/search', require('./controllers/search'))
+app.use('/characters', require('./controllers/characters'))
 
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`)
