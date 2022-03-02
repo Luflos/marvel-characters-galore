@@ -23,6 +23,7 @@ app.get ('/', (req, res) => {
 
 app.use('/search', require('./controllers/search'))
 app.use('/characters', require('./controllers/characters'))
+app.use('/comics', require('./controllers/comics'))
 
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`)
