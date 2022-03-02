@@ -29,6 +29,10 @@
       <%= attribution %>
     </p>
   </div>
+  <form method="POST" action="/user/profile/favorites">
+    <input hidden type="text" name="name" value="<%= detail.name %>">
+    <button class="btn btn-primary" type="submit">Add to Favorites</button>
+  </form>
   <% }) %>
 
   

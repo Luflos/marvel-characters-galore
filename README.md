@@ -31,8 +31,6 @@ More and more Marvel characters are being added to the MCU (Marvel Cinematic Uni
 | GET      | /creators/:id   | Show (read)  | Display the details page about a creator by their id
 | POST     | /series      | Create (create)      |  Create the series page
 | GET      | /series/:id   | Show (read)  | Display the details page about a Marvel series by their id
-| POST     | /events      | Create (create)      |  Create the events page
-| GET      | /events/:id   | Show (read)  | Display the details page about a Marvel events by their id
 | POST     | /stories      | Create (create)      |  Create the stories page
 | GET      | /stories/:id   | Show (read)  | Display the details page about a Marvel stories by their id
 
