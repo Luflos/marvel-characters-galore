@@ -1,0 +1,22 @@
+<h1>comics results page</h1>
+
+<% comics.forEach(comic=> { %>
+  <div>
+    <p>
+      Name: <%= comic.title %>
+    </p>
+    <p>
+      <% if ( comic.description !== null) { %>
+        Description: <%= comic.description %>
+      <% } %>
+      
+    </p>
+    <p>
+      <img src='<%= comic.thumbnail.path%>/portrait_incredible.jpg' alt="Picture of <%= comic.name %>"/>
+    </p>
+  </div>
+  <h1>
+    <a href="/comics/<%=comic.id %>"> More Details</a>
+
+  </h1>
+  <% }) %>
