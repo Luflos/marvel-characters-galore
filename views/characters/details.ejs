@@ -54,4 +54,7 @@
   </div>
   <% }) %>
 
-  
+
+  <% comics.forEach(comic => { %>
+    <img src='<%= comic.thumbnail.path%>/portrait_incredible.jpg' alt="Picture of <%= comic.title %>"/>
+  <% }) %>
