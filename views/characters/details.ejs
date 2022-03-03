@@ -26,14 +26,13 @@
     </p>
     <p>
       <img src='<%= detail.thumbnail.path%>/portrait_incredible.jpg' alt="Picture of <%= detail.name %>"/>
-      <%= attribution %>
     </p>
 
     <form method="POST" action="/characters">
       <input hidden type="text" name="name" value="<%= detail.name %>">
       <input hidden type="text" name="description" value="<%= detail.description %>">
       <input hidden type="text" name="thumbnail" value="<%= detail.thumbnail.path%>.jpg">
-      <button class="btn btn-primary" type="submit">Add to Favorites</button>
+      <button type="submit">Add to Favorites</button>
     </form>
 
   </div>
@@ -54,7 +53,10 @@
   </div>
   <% }) %>
 
-
   <% comics.forEach(comic => { %>
     <img src='<%= comic.thumbnail.path%>/portrait_incredible.jpg' alt="Picture of <%= comic.title %>"/>
   <% }) %>
+
+<p>
+  <%= attribution %>
+</p>

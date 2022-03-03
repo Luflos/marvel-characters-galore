@@ -6,7 +6,7 @@
       Title: <%= detail.title %>
     </p>
     <p> 
-      <% if ( detail.description === null) { %>
+      <% if (detail.description === null) { %>
         No description provided
         <%} else { %>
         Description: <%= detail.description %>
@@ -38,8 +38,17 @@
       Events: <%= detail.events.available %>
     </p>
     <p>
-      <img src='<%= detail.thumbnail.path%>.jpg' alt="Picture of <%= detail.name %>"/>
-      <%= attribution %>
+      <img src='<%= detail.thumbnail.path%>.jpg' alt="Picture of <%= detail.title %>"/>
     </p>
+    <%= attribution %>
   </div>
+
+  <form method="POST" action="/comics">
+    <input hidden type="text" name="title" value="<%= detail.title %>">
+    <input hidden type="text" name="description" value="<%= detail.description %>">
+    <input hidden type="text" name="series" value="<%= detail.series.name %>">
+    <input hidden type="text" name="thumbnail" value="<%= detail.thumbnail.path%>.jpg">
+    <button type="submit">Add to Favorites</button>
+  </form>
+
   <% }) %>

@@ -1,0 +1,18 @@
+<h1> My favorite comics </h1>
+
+<% comicArray.forEach(comic => { %>
+ <p>
+   <%= comic.title %> :
+   <%= comic.description %>
+  <p>
+    Series: <%= comic.series %> 
+  </p>
+   <img src='<%=comic.thumbnail%>' alt="Picture of <%= comic.title %>"/>
+ </p>
+
+ <form action="/comics/?_method=DELETE" method="POST">
+   <input hidden name="comicId" value="<%= comic.id %>">
+   <button type="submit">Remove from favorites</button>
+ </form>
+
+<% }) %>

@@ -3,6 +3,7 @@ const axios = require('axios')
 const { createHash } = require('crypto')
 require('dotenv').config();
 const router = express.Router()
+const db = require("../models");
 
 const options = {
   headers: {
@@ -22,9 +23,52 @@ router.get('/:comics_id', async (req, res) => {
     const response = await axios.get(url, options)
     const comicDetails = response.data.data.results
     const attribution = response.data.attributionText
-    console.log(comicDetails)
+    // console.log(comicDetails)
     res.render('comics/details.ejs', {details: comicDetails, attribution})
 
+  } catch (err) {
+    console.log(err)
+  }
+})
+
+// POST - add a comic to the db
+router.post('/', async (req, res) => {
+  try {
+    const [comic, wasCreated] = await db.comic.findOrCreate({
+      where: {
+        title: req.body.title,
+        series: req.body.series,
+        description: req.body.description,
+        thumbnail: req.body.thumbnail
+      }
+    })
+    await res.locals.currentUser.addComic(comic)
+    console.log(`comic ${comic.title} was created:${wasCreated}`)
+  } catch (err) {
+    console.log(err)
+  }
+})
+
+// Show Users Favorite Comics
+router.get('/', async (req, res) => {
+  try {
+    const comicArray = await res.locals.currentUser.getComics()
+    res.render('comics/favorites.ejs', {comicArray})
+  } catch (err) {
+    console.log(err)
+  }
+})
+
+router.delete('/', async (req, res) => {
+  try {
+    const deleteFav = await db.users_comics.findOne({
+      where: {
+        userId: res.locals.currentUser.id,
+        comicId: req.body.comicId
+      }
+    })
+    await deleteFav.destroy()
+    res.redirect('/comics')
   } catch (err) {
     console.log(err)
   }
