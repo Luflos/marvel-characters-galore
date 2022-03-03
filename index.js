@@ -7,6 +7,7 @@ const cryptoJS = require('crypto-js');
 require('dotenv').config();
 const db = require("./models/index.js");
 
+
 app.set("view engine", "ejs");  // set the view engine to ejs
 app.use(ejsLayouts);  // tell express we want to use layouts
 app.use(cookieParser())
