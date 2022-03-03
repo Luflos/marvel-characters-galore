@@ -1,16 +1,24 @@
-<h1>Marvel Search</h1>
-<p>Search for a Marvel Character below!</p>
+<% if (currentUser) { %>
 
-<form method="GET" action="search/charresults">
-  <label for ="marvel-search">Search:</label>
-  <input type="text" id="marvel-search" placeholder="enter your character" name="searchMarvel" />
-  <input type="submit" />
+  <h1>Marvel Search</h1>
+  <p>Search for a Marvel Character below!</p>
   
-</form>
+  <form method="GET" action="search/charresults">
+    <label for ="marvel-search">Search:</label>
+    <input type="text" id="marvel-search" placeholder="enter your character" name="searchMarvel" />
+    <input type="submit" />
+    
+  </form>
+  
+  <form method="GET" action="search/comicresults">
+    <label for ="comic-search">Search:</label>
+    <input type="text" id="comic-search" placeholder="enter your comic" name="searchComics" />
+    <input type="submit" />
+    
+  </form>
 
-<form method="GET" action="search/comicresults">
-  <label for ="comic-search">Search:</label>
-  <input type="text" id="comic-search" placeholder="enter your comic" name="searchComics" />
-  <input type="submit" />
-  
-</form>
+  <% } else { %>
+ 
+   <p>Please Sign Up First!</p>
+   
+ <% } %>

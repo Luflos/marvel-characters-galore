@@ -1,0 +1,10 @@
+<h1> My favorite characters </h1>
+
+<% charArray.forEach(char => { %>
+ <p>
+   <%= char.name %> :
+   <%= char.description %> 
+   <img src='<%=char.thumbnail%>' alt="Picture of <%= char.name %>"/>
+ </p>
+<% }) %>
+

@@ -71,6 +71,7 @@ router.get("/logout", (req, res) => {
   res.redirect("/");
 });
 
+// Edit users name
 router.put("/:id", async (req, res) => {
   try {
     await db.user.update(
@@ -89,6 +90,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 
+// Users edit page
 router.get("/edit/:id", (req, res) => {
   res.render("users/edit.ejs");
 });

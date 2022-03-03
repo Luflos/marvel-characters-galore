@@ -56,11 +56,11 @@ router.post('/', async (req, res) => {
   }
 })
 
-//show
+// Show User Favorites
 router.get('/', async (req, res) => {
   try {
     const charArray = await res.locals.currentUser.getCharacters()
-    res.render('characters/index.ejs', {charArray})
+    res.render('characters/favorites.ejs', {charArray})
   } catch (err) {
     console.log(err)
   }
