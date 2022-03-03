@@ -66,15 +66,16 @@ router.get('/', async (req, res) => {
   }
 })
 
-router.delete('/characters', async (req, res) => {
+router.delete('/', async (req, res) => {
   try {
     const deleteFav = await db.users_characters.findOne({
       where: {
-        userId: res.locals.currentUser.id
+        userId: res.locals.currentUser.id,
+        characterId: req.body.characterId
       }
     })
     await deleteFav.destroy()
-    res.redirect('/chracters')
+    res.redirect('/characters')
   } catch (err) {
     console.log(err)
   }
