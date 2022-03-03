@@ -27,7 +27,7 @@
     </p>
     <p>
      Characters:
-      <% for( let i = 0; i < detail.characters.items.length; i++ ) { %>
+      <% for( let i = 0; i > detail.characters.items.length; i++ ) { %>
         <%= detail.characters.items[i].name %>,
       <% } %>
     </p>
@@ -38,7 +38,7 @@
       Events: <%= detail.events.available %>
     </p>
     <p>
-      <img src='<%= detail.thumbnail.path%>/portrait_uncanny.jpg' alt="Picture of <%= detail.name %>"/>
+      <img src='<%= detail.thumbnail.path%>.jpg' alt="Picture of <%= detail.name %>"/>
       <%= attribution %>
     </p>
   </div>

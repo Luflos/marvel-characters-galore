@@ -28,11 +28,30 @@
       <img src='<%= detail.thumbnail.path%>/portrait_incredible.jpg' alt="Picture of <%= detail.name %>"/>
       <%= attribution %>
     </p>
+
+    <form method="POST" action="/user/profile/favorites">
+      <input hidden type="text" name="name" value="<%= detail.name %>">
+      <input hidden type="text" name="description" value="<%= detail.description %>">
+      <input hidden type="text" name="thumbnail" value="<%= detail.thumbnail.path%>.jpg">
+      <button class="btn btn-primary" type="submit">Add to Favorites</button>
+    </form>
+
   </div>
-  <form method="POST" action="/user/profile/favorites">
-    <input hidden type="text" name="name" value="<%= detail.name %>">
-    <button class="btn btn-primary" type="submit">Add to Favorites</button>
-  </form>
+  <p>
+    <% if (detail.comics.available >= 1) { %>
+      <% for( let i = 0; i < detail.comics.items.length; i++ ) { %>
+        <%= detail.comics.items[i].name %>, 
+        <% if (i === 5) { %>
+         <% break; %> 
+        <% } %>
+      <% } %> 
+        <% } else { %>
+         No comics
+    <% } %>
+   </p>
+  <div>
+
+  </div>
   <% }) %>
 
   
