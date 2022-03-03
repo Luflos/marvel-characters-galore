@@ -1,6 +1,7 @@
 const express = require("express");
 const axios = require('axios')
-const { createHash } = require('crypto')
+const { createHash } = require('crypto');
+const db = require("../models");
 require('dotenv').config();
 const router = express.Router()
 
@@ -26,6 +27,33 @@ router.get('/:characters_id', async (req, res) => {
     console.log(charDetails)
     res.render('characters/details.ejs', {details: charDetails, attribution})
 
+  } catch (err) {
+    console.log(err)
+  }
+})
+
+// POST - add a character to the db
+router.post('/', async (req, res) => {
+  try {
+    const [character, wasCreated] = await db.character.findOrCreate({
+      where: {
+        name: req.body.name,
+        description: req.body.description,
+        thumbnail: req.body.thumbnail
+      }
+    })
+    await res.locals.currentUser.addCharacter(character)
+    console.log(`character ${character.name} was created:${wasCreated}`)
+  } catch (err) {
+    console.log(err)
+  }
+})
+
+//show
+router.get('/', async (req, res) => {
+  try {
+    const charArray = await res.locals.currentUser.getCharacters()
+    res.render('characters/index.ejs', {charArray})
   } catch (err) {
     console.log(err)
   }

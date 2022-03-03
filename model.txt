@@ -1,5 +1,5 @@
 sequelize model:create --name user --attributes name:string,email:string,password:string
 
-sequelize model:create --name character --attributes name:string,description:string,thumbnail:string
+sequelize model:create --name character --attributes name:string,description:text,thumbnail:string
 
 sequelize model:create --name users_characters --attributes userId:integer,characterId:integer

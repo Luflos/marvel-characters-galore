@@ -23,8 +23,8 @@ app.use( async (req, res, next) => {
     // querying the db for the user with that id
     const user = await db.user.findByPk(decryptedIdString)
     // assigning the found user to res.locals.user in the routes, and user in the ejs
-    res.locals.user = user
-  } else res.locals.user = null
+    res.locals.currentUser = user
+  } else res.locals.currentUser = null
   next()  // move on to the next middleware
 })
 

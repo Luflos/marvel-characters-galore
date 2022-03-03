@@ -29,7 +29,7 @@
       <%= attribution %>
     </p>
 
-    <form method="POST" action="/user/profile/favorites">
+    <form method="POST" action="/characters">
       <input hidden type="text" name="name" value="<%= detail.name %>">
       <input hidden type="text" name="description" value="<%= detail.description %>">
       <input hidden type="text" name="thumbnail" value="<%= detail.thumbnail.path%>.jpg">
