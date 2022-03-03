@@ -71,4 +71,26 @@ router.get("/logout", (req, res) => {
   res.redirect("/");
 });
 
+router.put("/:id", async (req, res) => {
+  try {
+    await db.user.update(
+      {
+        name: req.body.name,
+      },
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
+    res.redirect("/profile");
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+router.get("/edit/:id", (req, res) => {
+  res.render("/users/edit.ejs");
+});
+
 module.exports = router;
