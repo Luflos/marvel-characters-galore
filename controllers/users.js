@@ -75,15 +75,15 @@ router.put("/:id", async (req, res) => {
   try {
     await db.user.update(
       {
-        name: req.body.name,
+        name: req.body.name
       },
       {
         where: {
-          id: req.params.id,
+          id: req.params.id
         },
       }
     );
-    res.redirect("/profile");
+    res.redirect("/users/profile");
   } catch (err) {
     console.log(err);
   }

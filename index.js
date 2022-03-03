@@ -6,9 +6,10 @@ const cryptoJS = require('crypto-js');
 // const db = require("./models/index.js");
 require('dotenv').config();
 const db = require("./models/index.js");
-
+const methodOverride = require ('method-override')
 
 app.set("view engine", "ejs");  // set the view engine to ejs
+app.use(methodOverride('_method'))
 app.use(ejsLayouts);  // tell express we want to use layouts
 app.use(cookieParser())
 app.use(express.urlencoded({ extended: false })) // body parser (to make req.body work)
