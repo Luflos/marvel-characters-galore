@@ -59,7 +59,7 @@ router.post('/', async (req, res) => {
   }
 })
 
-// Show Users Favorite Comics
+// Show Users Favorite Creators
 router.get('/', async (req, res) => {
     const creatorArray = await res.locals.currentUser.getCreators()
     res.render('creators/favorites.ejs', {creatorArray})

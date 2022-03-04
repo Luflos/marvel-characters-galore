@@ -3,11 +3,9 @@
 <% details.forEach(detail=> { %>
   <div>
     <p>
-      Name: <%= detail.fullName %>
-    </p>
-    <p>
-      <a href="<%= urlToMarvel.results[0].urls[0].url %>">
-        <img src='<%= detail.thumbnail.path%>.jpg' alt="Picture of <%= detail.fullName %>"/>
+      Name: 
+      <a href="<%= urlToMarvel.results[0].urls[0].url %>"> 
+        <%= detail.fullName %>
       </a>
     </p>
     <p>
@@ -19,9 +17,24 @@
         <br>
         Events: <%= detail.events.available %>
     </p>
+    <p>
+        <img src='<%= detail.thumbnail.path%>.jpg' alt="Picture of <%= detail.fullName %>"/>
+    </p>
   </div>
+
+  <form method="POST" action="/creators">
+    <input hidden type="text" name="name" value="<%= detail.fullName %>">
+    <input hidden type="text" name="comics" value="<%= detail.comics.available %>">
+    <input hidden type="text" name="series" value="<%= detail.series.available %>">
+    <input hidden type="text" name="stories" value="<%= detail.stories.available %>">
+    <input hidden type="text" name="events" value="<%= detail.events.available %>">
+    <input hidden type="text" name="thumbnail" value="<%= detail.thumbnail.path%>.jpg">
+    <button type="submit">Add to Favorites</button>
+  </form>
   <% }) %>
 
+  <br>
+  
   <% comics.forEach(comic => { %>
     <a href="/comics/<%=comic.id %>">
      <img src='<%= comic.thumbnail.path%>/portrait_incredible.jpg' alt="Picture of <%= comic.title %>"/>

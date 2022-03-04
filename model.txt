@@ -8,6 +8,6 @@ sequelize model:create --name comic --attributes title:string,series:string,desc
 
 sequelize model:create --name users_comics --attributes userId:integer,comicId:integer
 
-sequelize model:create --name creator --attributes name:string,series:string,description:text,thumbnail:string
+sequelize model:create --name creator --attributes name:string,comics:integer,series:integer,stories:integer,events:integer,thumbnail:string
 
-sequelize model:create --name users_comics --attributes userId:integer,comicId:integer
+sequelize model:create --name users_creators --attributes userId:integer,creatorId:integer
