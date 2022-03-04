@@ -36,6 +36,7 @@ app.use('/users', require('./controllers/users.js'))
 app.use('/search', require('./controllers/search'))
 app.use('/characters', require('./controllers/characters'))
 app.use('/comics', require('./controllers/comics'))
+app.use('/creators', require('./controllers/creators'))
 
 
 app.get ('/', (req, res) => {

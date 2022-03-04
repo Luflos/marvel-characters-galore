@@ -1,0 +1,13 @@
+<h1> This is the Creators Detail Page </h1>
+
+<% details.forEach(detail=> { %>
+  <div>
+    <p>
+      Name: <%= detail.fullName %>
+    </p>
+    <p>
+      <img src='<%= detail.thumbnail.path%>.jpg' alt="Picture of <%= detail.fullName %>"/>
+    </p>
+  </div>
+
+  <% }) %>

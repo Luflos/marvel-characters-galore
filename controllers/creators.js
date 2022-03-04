@@ -18,13 +18,13 @@ const reqHash = createHash('md5').update(ts + privKey + pubKey).digest('hex')
 
 router.get('/:creators_id', async (req, res) => {
   try {
-    const url = (`http://gateway.marvel.com/v1/public/creators/${req.params.comics_id}?&ts=${ts}&apikey=${pubKey}&hash=${reqHash}`)
+    const url = (`http://gateway.marvel.com/v1/public/creators/${req.params.creators_id}?&ts=${ts}&apikey=${pubKey}&hash=${reqHash}`)
     
     const response = await axios.get(url, options)
     const creatorDetails = response.data.data.results
     const attribution = response.data.attributionText
-    // console.log(comicDetails)
-    res.render('creator/details.ejs', {details: creatorDetails, attribution})
+    // console.log(creatorDetails)
+    res.render('creators/details.ejs', {details: creatorDetails, attribution})
 
   } catch (err) {
     console.log(err)
