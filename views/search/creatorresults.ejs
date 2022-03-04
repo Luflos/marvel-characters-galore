@@ -1,0 +1,16 @@
+<h1>Creators results page</h1>
+
+<% creators.forEach(creator=> { %>
+  <div>
+    <p>
+      Name: <%= creator.fullName %>
+    </p>
+    <p>
+      <img src='<%= creator.thumbnail.path%>/portrait_fantastic.jpg' alt="Picture of <%= creator.fullName %>"/>
+    </p>
+  </div>
+  <h1>
+    <a href="/creator/<%=creator.id %>"> More Details</a>
+
+  </h1>
+  <% }) %>

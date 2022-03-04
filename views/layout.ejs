@@ -9,7 +9,7 @@
   integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
   <link rel="stylesheet" href="/css/bootstrap.min.css">
-  <!-- <link rel="stylesheet" href="/css/styles.css"> -->
+  <link rel="stylesheet" href="/css/styles.css">
 
   <title>Marvel Galore</title>
 </head>
@@ -35,6 +35,7 @@
         <% } %>
   
         <ul class="navbar-nav">
+          <% if (currentUser) { %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Favorites
@@ -44,6 +45,10 @@
               <li><a class="dropdown-item" href="/comics">Comics</a></li>
               <li><a class="dropdown-item" href="#">Author</a></li>
             </ul>
+
+            <% } else { %>
+              <a class="nav-link disabled"></a>
+            <% } %>
           </li>
         </ul>
       </div>
