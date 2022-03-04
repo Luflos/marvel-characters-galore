@@ -8,6 +8,24 @@
     <p>
       <img src='<%= detail.thumbnail.path%>.jpg' alt="Picture of <%= detail.fullName %>"/>
     </p>
+    <p>
+        Comics: <%= detail.comics.available %>
+        <br>
+        Series: <%= detail.series.available %>
+        <br>
+        Stories: <%= detail.stories.available %>
+        <br>
+        Events: <%= detail.events.available %>
+    </p>
   </div>
-
   <% }) %>
+
+  <% comics.forEach(comic => { %>
+    <a href="/comics/<%=comic.id %>">
+     <img src='<%= comic.thumbnail.path%>/portrait_incredible.jpg' alt="Picture of <%= comic.title %>"/>
+   </a> 
+   <% }) %>
+
+  <p>
+    <%= attribution %>
+  </p>

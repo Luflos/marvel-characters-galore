@@ -23,8 +23,14 @@ router.get('/:creators_id', async (req, res) => {
     const response = await axios.get(url, options)
     const creatorDetails = response.data.data.results
     const attribution = response.data.attributionText
+
+    const comicUrl = (`http://gateway.marvel.com/v1/public/creators/${req.params.creators_id}/comics?formatType=comic&limit=8&ts=${ts}&apikey=${pubKey}&hash=${reqHash}`)
+
+    const responseTwo = await axios.get(comicUrl,  options)
+    const comicImg = responseTwo.data.data.results
+
     // console.log(creatorDetails)
-    res.render('creators/details.ejs', {details: creatorDetails, attribution})
+    res.render('creators/details.ejs', {details: creatorDetails, comics: comicImg, attribution})
 
   } catch (err) {
     console.log(err)
