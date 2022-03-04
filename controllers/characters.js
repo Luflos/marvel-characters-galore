@@ -50,7 +50,8 @@ router.post('/', async (req, res) => {
       }
     })
     await res.locals.currentUser.addCharacter(character)
-    console.log(`character ${character.name} was created:${wasCreated}`)
+    // console.log(`character ${character.name} was created:${wasCreated}`)
+    res.redirect('/characters')
   } catch (err) {
     console.log(err)
   }
@@ -58,12 +59,8 @@ router.post('/', async (req, res) => {
 
 // Show User Favorites
 router.get('/', async (req, res) => {
-  try {
     const charArray = await res.locals.currentUser.getCharacters()
     res.render('characters/favorites.ejs', {charArray})
-  } catch (err) {
-    console.log(err)
-  }
 })
 
 router.delete('/', async (req, res) => {

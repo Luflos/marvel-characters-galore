@@ -61,7 +61,7 @@ router.post("/login", async (req, res) => {
     // store the encrypted id in the cookie of the response object
     res.cookie("userId", encryptedUserIdString);
     // redirect back to the home page
-    res.redirect("/");
+    res.redirect("/users/profile");
   }
 });
 

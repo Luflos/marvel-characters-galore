@@ -43,7 +43,8 @@ router.post('/', async (req, res) => {
       }
     })
     await res.locals.currentUser.addComic(comic)
-    console.log(`comic ${comic.title} was created:${wasCreated}`)
+    // console.log(`comic ${comic.title} was created:${wasCreated}`)
+    res.redirect('/comics')
   } catch (err) {
     console.log(err)
   }
@@ -51,12 +52,8 @@ router.post('/', async (req, res) => {
 
 // Show Users Favorite Comics
 router.get('/', async (req, res) => {
-  try {
     const comicArray = await res.locals.currentUser.getComics()
     res.render('comics/favorites.ejs', {comicArray})
-  } catch (err) {
-    console.log(err)
-  }
 })
 
 router.delete('/', async (req, res) => {

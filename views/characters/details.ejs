@@ -34,27 +34,12 @@
       <input hidden type="text" name="thumbnail" value="<%= detail.thumbnail.path%>.jpg">
       <button type="submit">Add to Favorites</button>
     </form>
-
-  </div>
-  <p>
-    <% if (detail.comics.available >= 1) { %>
-      <% for( let i = 0; i < detail.comics.items.length; i++ ) { %>
-        <%= detail.comics.items[i].name %>, 
-        <% if (i === 5) { %>
-         <% break; %> 
-        <% } %>
-      <% } %> 
-        <% } else { %>
-         No comics
-    <% } %>
-   </p>
-  <div>
-
-  </div>
-  <% }) %>
+    <% }) %>
 
   <% comics.forEach(comic => { %>
+   <a href="/comics/<%=comic.id %>">
     <img src='<%= comic.thumbnail.path%>/portrait_incredible.jpg' alt="Picture of <%= comic.title %>"/>
+  </a> 
   <% }) %>
 
 <p>
