@@ -25,7 +25,10 @@
       Events: <%= detail.events.available %>
     </p>
     <p>
-      <img src='<%= detail.thumbnail.path%>/portrait_incredible.jpg' alt="Picture of <%= detail.name %>"/>
+      <a href="<%= linkToMarvel.results[0].urls[1].url %>">
+        <img src='<%= detail.thumbnail.path%>/portrait_incredible.jpg' alt="Picture of <%= detail.name %>"/>
+      
+      </a>
     </p>
 
     <form method="POST" action="/characters">

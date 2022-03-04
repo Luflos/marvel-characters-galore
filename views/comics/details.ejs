@@ -38,9 +38,10 @@
       Events: <%= detail.events.available %>
     </p>
     <p>
-      <img src='<%= detail.thumbnail.path%>.jpg' alt="Picture of <%= detail.title %>"/>
+      <a href="<%= marvelUrl.results[0].urls[0].url %>">
+        <img src='<%= detail.thumbnail.path%>.jpg' alt="Picture of <%= detail.title %>"/>
+      </a>
     </p>
-    <%= attribution %>
   </div>
 
   <form method="POST" action="/comics">
@@ -51,4 +52,5 @@
     <button type="submit">Add to Favorites</button>
   </form>
 
+  <%= attribution %>
   <% }) %>

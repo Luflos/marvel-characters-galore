@@ -6,7 +6,9 @@
       Name: <%= detail.fullName %>
     </p>
     <p>
-      <img src='<%= detail.thumbnail.path%>.jpg' alt="Picture of <%= detail.fullName %>"/>
+      <a href="<%= urlToMarvel.results[0].urls[0].url %>">
+        <img src='<%= detail.thumbnail.path%>.jpg' alt="Picture of <%= detail.fullName %>"/>
+      </a>
     </p>
     <p>
         Comics: <%= detail.comics.available %>

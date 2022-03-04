@@ -23,34 +23,37 @@ router.get('/:creators_id', async (req, res) => {
     const response = await axios.get(url, options)
     const creatorDetails = response.data.data.results
     const attribution = response.data.attributionText
+    const urlToMarvel = response.data.data
 
     const comicUrl = (`http://gateway.marvel.com/v1/public/creators/${req.params.creators_id}/comics?formatType=comic&limit=8&ts=${ts}&apikey=${pubKey}&hash=${reqHash}`)
 
     const responseTwo = await axios.get(comicUrl,  options)
     const comicImg = responseTwo.data.data.results
 
-    // console.log(creatorDetails)
-    res.render('creators/details.ejs', {details: creatorDetails, comics: comicImg, attribution})
+    // console.log(response.data.data.results[0].urls[0].url)
+    res.render('creators/details.ejs', {details: creatorDetails, comics: comicImg, attribution, urlToMarvel})
 
   } catch (err) {
     console.log(err)
   }
 })
 
-// POST - add a comic to the db
+// POST - add a creator to the db
 router.post('/', async (req, res) => {
   try {
-    const [comic, wasCreated] = await db.comic.findOrCreate({
+    const [creator, wasCreated] = await db.creator.findOrCreate({
       where: {
-        title: req.body.title,
+        name: req.body.name,
+        comics: req.body.comics,
         series: req.body.series,
-        description: req.body.description,
+        stories: req.body.stories,
+        events: req.body.events,
         thumbnail: req.body.thumbnail
       }
     })
-    await res.locals.currentUser.addComic(comic)
+    await res.locals.currentUser.addCreator(creator)
     // console.log(`comic ${comic.title} was created:${wasCreated}`)
-    res.redirect('/comics')
+    res.redirect('/creators')
   } catch (err) {
     console.log(err)
   }
@@ -58,20 +61,20 @@ router.post('/', async (req, res) => {
 
 // Show Users Favorite Comics
 router.get('/', async (req, res) => {
-    const comicArray = await res.locals.currentUser.getComics()
-    res.render('comics/favorites.ejs', {comicArray})
+    const creatorArray = await res.locals.currentUser.getCreators()
+    res.render('creators/favorites.ejs', {creatorArray})
 })
 
 router.delete('/', async (req, res) => {
   try {
-    const deleteFav = await db.users_comics.findOne({
+    const deleteFav = await db.users_creators.findOne({
       where: {
         userId: res.locals.currentUser.id,
-        comicId: req.body.comicId
+        creatorId: req.body.creatorId
       }
     })
     await deleteFav.destroy()
-    res.redirect('/comics')
+    res.redirect('/creators')
   } catch (err) {
     console.log(err)
   }

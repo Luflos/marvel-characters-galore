@@ -23,8 +23,9 @@ router.get('/:comics_id', async (req, res) => {
     const response = await axios.get(url, options)
     const comicDetails = response.data.data.results
     const attribution = response.data.attributionText
+    const marvelUrl = response.data.data
     // console.log(comicDetails)
-    res.render('comics/details.ejs', {details: comicDetails, attribution})
+    res.render('comics/details.ejs', {details: comicDetails, attribution, marvelUrl})
 
   } catch (err) {
     console.log(err)

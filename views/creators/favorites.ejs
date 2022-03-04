@@ -1,0 +1,24 @@
+<h1> My favorite creators </h1>
+
+<% creatorArray.forEach(creator => { %>
+ <p>
+   <%= creator.name %> :
+  <p>
+    Comics: <%= creator.comics %>
+    <br>
+    Series: <%= creator.series %> 
+    <br>
+    Stories: <%= creator.stories %>
+    <br>
+    Events: <%= creator.events %>
+</p>
+
+   <img src='<%=creator.thumbnail%>' alt="Picture of <%= comic.name %>"/>
+ </p>
+
+ <form action="/creators/?_method=DELETE" method="POST">
+   <input hidden name="creatorId" value="<%= creator.id %>">
+   <button type="submit">Remove from favorites</button>
+ </form>
+
+<% }) %>
