@@ -8,6 +8,7 @@ require('dotenv').config();
 const db = require("./models/index.js");
 const methodOverride = require ('method-override')
 
+app.use('/',express.static('public'))
 app.set("view engine", "ejs");  // set the view engine to ejs
 app.use(methodOverride('_method'))
 app.use(ejsLayouts);  // tell express we want to use layouts
