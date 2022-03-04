@@ -7,3 +7,7 @@ sequelize model:create --name users_characters --attributes userId:integer,chara
 sequelize model:create --name comic --attributes title:string,series:string,description:text,thumbnail:string
 
 sequelize model:create --name users_comics --attributes userId:integer,comicId:integer
+
+sequelize model:create --name creator --attributes name:string,series:string,description:text,thumbnail:string
+
+sequelize model:create --name users_comics --attributes userId:integer,comicId:integer
