@@ -1,13 +1,12 @@
 <% if (currentUser) { %>
 
-  <h1 class="text-center">Search</h1>
-
   <div class = 'd-flex justify-content-center'>
     <img src = "/img/marvel-search.jpg" />
   </div>
-
+  
   <div class ="text-center fs-4">
-
+    <h1>Search</h1>
+    
     <form method="GET" action="search/charresults">
       <label class="fs-3" for ="marvel-search">Characters:</label>
       <input type="text" id="marvel-search" placeholder="Search for a character" name="searchMarvel" />

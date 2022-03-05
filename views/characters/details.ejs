@@ -1,101 +1,50 @@
-<h1> this is the characters page </h1>
+<h1 class = "text-center"> Details Page </h1>
 
 <% details.forEach(detail=> { %>
-  <div>
-    <p>
-      Name: <%= detail.name %>
-    </p>
-    <p> 
-      <% if ( detail.description === "") { %>
-        No description provided
-        <%} else { %>
-        Description: <%= detail.description %>
-      <% } %>
-    </p>
-    <p>
-      Comics: <%= detail.comics.available %>
-    </p>
-    <p>
-      Series: <%= detail.series.available %>
-    </p>
-    <p>
-      Stories: <%= detail.stories.available %>
-    </p>
-    <p>
-      Events: <%= detail.events.available %>
-
   <div class="container-xxl">
     <div class="card mb-3">
       <div class="row g-0">
         <div class="col-md-4">
-          <img src="<%= detail.thumbnail.path%>.jpg" class="img-fluid rounded-start" alt="Picture of <%= detail.name %>">
+          <a href="<%= linkToMarvel.results[0].urls[1].url %>">
+            <img src="<%= detail.thumbnail.path%>.jpg" class="img-fluid rounded-start" alt="Picture of <%= detail.name %>">
+          </a>
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title"><%= detail.name %></h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            <h2 class="card-title fs-1"><%= detail.name %></h2>
+            <p class="card-text fs-3">
+              <% if ( detail.description === "") { %>
+                No description provided
+                <%} else { %>
+                Description: <%= detail.description %>
+              <% } %>
+            </p>
+            <p class = 'fs-5'>
+              Comics: <%= detail.comics.available %>
+              | Series: <%= detail.series.available %>
+              | Stories: <%= detail.stories.available %>
+              | Events: <%= detail.events.available %>
+            </p>
+            <p class="card-text"><small class="text-muted">
+            <form method="POST" action="/characters">
+              <input hidden type="text" name="name" value="<%= detail.name %>">
+              <input hidden type="text" name="description" value="<%= detail.description %>">
+              <input hidden type="text" name="thumbnail" value="<%= detail.thumbnail.path%>.jpg">
+              <button class="btn btn-outline-light" type="submit">Add to Favorites</button>
+            </form>
+          </small> </p>
+            <p class="card-text"><small class="text-muted">
+              <%= attribution %>
+            </small></p>
           </div>
         </div>
       </div>
     </div>
-
-    <form method="POST" action="/characters">
-      <input hidden type="text" name="name" value="<%= detail.name %>">
-      <input hidden type="text" name="description" value="<%= detail.description %>">
-      <input hidden type="text" name="thumbnail" value="<%= detail.thumbnail.path%>.jpg">
-      <button type="submit">Add to Favorites</button>
-    </form>
     <% }) %>
-
   </div>
-
-
-<% details.forEach(detail=> { %>
-  <div>
-    <p>
-      Name: <%= detail.name %>
-    </p>
-    <p> 
-      <% if ( detail.description === "") { %>
-        No description provided
-        <%} else { %>
-        Description: <%= detail.description %>
-      <% } %>
-    </p>
-    <p>
-      Comics: <%= detail.comics.available %>
-    </p>
-    <p>
-      Series: <%= detail.series.available %>
-    </p>
-    <p>
-      Stories: <%= detail.stories.available %>
-    </p>
-    <p>
-      Events: <%= detail.events.available %>
-    </p>
-    <p>
-      <a href="<%= linkToMarvel.results[0].urls[1].url %>">
-        <img src='<%= detail.thumbnail.path%>/portrait_incredible.jpg' alt="Picture of <%= detail.name %>"/>
-      
-      </a>
-    </p>
-
-    <form method="POST" action="/characters">
-      <input hidden type="text" name="name" value="<%= detail.name %>">
-      <input hidden type="text" name="description" value="<%= detail.description %>">
-      <input hidden type="text" name="thumbnail" value="<%= detail.thumbnail.path%>.jpg">
-      <button type="submit">Add to Favorites</button>
-    </form>
-    <% }) %>
 
   <% comics.forEach(comic => { %>
    <a href="/comics/<%=comic.id %>">
     <img src='<%= comic.thumbnail.path%>/portrait_incredible.jpg' alt="Picture of <%= comic.title %>"/>
   </a> 
   <% }) %>
-
-<p>
-  <%= attribution %>
-</p>
