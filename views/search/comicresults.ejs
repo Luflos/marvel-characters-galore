@@ -1,4 +1,12 @@
-<h1>comics results page</h1>
+<h1 class="text-center">Comics:</h1>
+
+<% if (badData.count === 0) {%> 
+  <div class = 'd-flex justify-content-center'>
+       <img src = "/img/hulk.gif" />
+  </div>
+  <h1 class ='text-center'> No search results... Please try again!</h1>
+
+<% } else { %>
 
 <% comics.forEach(comic=> { %>
   <div>
@@ -20,3 +28,4 @@
 
   </h1>
   <% }) %>
+<% } %>

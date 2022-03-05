@@ -25,12 +25,13 @@ router.get('/', async (req, res) => {
 
 router.get('/charresults', async (req, res) => {
   try {
-    const url = (`http://gateway.marvel.com/v1/public/characters?nameStartsWith=${req.query.searchMarvel}&limit=5&ts=${ts}&apikey=${pubKey}&hash=${reqHash}`)
+    const url = (`http://gateway.marvel.com/v1/public/characters?nameStartsWith=${req.query.searchMarvel}&limit=10&ts=${ts}&apikey=${pubKey}&hash=${reqHash}`)
     
     const response = await axios.get(url, options)
     const marvelChar = response.data.data.results
-    // console.log(marvelChar)
-    res.render('search/charresults.ejs', {details: marvelChar})
+    const badData = response.data.data
+    console.log(badData.count)
+    res.render('search/charresults.ejs', {details: marvelChar, badData})
 
   } catch (err) {
     console.log(err)
@@ -43,8 +44,8 @@ router.get('/comicresults', async (req, res) => {
     
     const response = await axios.get(url, options)
     const marvelComics = response.data.data.results
-    // console.log(response.data.data)
-    res.render('search/comicresults.ejs', {comics: marvelComics})
+    const badData = response.data.data
+    res.render('search/comicresults.ejs', {comics: marvelComics, badData})
 
   } catch (err) {
     console.log(err)
@@ -58,8 +59,9 @@ router.get('/creatorresults', async (req, res) => {
 
     const response = await axios.get(url, options)
     const marvelCreators = response.data.data.results
+    const badData = response.data.data
     // console.log(response.data)
-    res.render('search/creatorresults.ejs', {creators: marvelCreators})
+    res.render('search/creatorresults.ejs', {creators: marvelCreators, badData})
 
   } catch (err) {
     console.log(err)
