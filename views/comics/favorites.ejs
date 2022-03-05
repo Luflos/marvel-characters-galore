@@ -1,18 +1,31 @@
-<h1> My favorite comics </h1>
+<h1 class="text-center"> My favorite comics </h1>
 
 <% comicArray.forEach(comic => { %>
- <p>
-   <%= comic.title %> :
-   <%= comic.description %>
-  <p>
-    Series: <%= comic.series %> 
-  </p>
-   <img src='<%=comic.thumbnail%>' alt="Picture of <%= comic.title %>"/>
- </p>
 
- <form action="/comics/?_method=DELETE" method="POST">
-   <input hidden name="comicId" value="<%= comic.id %>">
-   <button type="submit">Remove from favorites</button>
- </form>
+ <div class="container">
+  <div class="card mb-3">
+   <div class="row g-0">
+     <div class="col-md-4">
+       <img src="<%=comic.thumbnail%>" class="img-fluid rounded-start" alt="Picture of <%= comic.title %>">
+     </div>
+     <div class="col-md-8">
+       <div class="card-body">
+         <h5 class="card-title fs-2"><%= comic.title %></h5>
+         <p class="card-text fs-4">  <%= comic.description %> </p>
+         <p class="card-text fs-4"> Series: <%= comic.series %> </p>
+         <p class="card-text"><small class="text-muted">
+          <form action="/comics/?_method=DELETE" method="POST">
+            <input hidden name="comicId" value="<%= comic.id %>">
+            <button class= 'btn btn-outline-light'type="submit">Remove from favorites</button>
+          </form>
+       </small> </p>
+       <p class="card-text"><small class="text-muted">
+         Data provided by Marvel. © 2022 Marvel
+       </small> </p>
+       </div>
+     </div>
+   </div>
+ </div>
+</div>
 
 <% }) %>

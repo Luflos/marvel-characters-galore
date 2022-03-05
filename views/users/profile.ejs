@@ -1,22 +1,24 @@
-<h2>Hello <%= currentUser.name %> </h2>
+<h2 class="text-center">Hello <%= currentUser.name %> </h2>
 
 <div class = 'd-flex justify-content-center'>
   <img src = "/img/marvel-comicbooks.gif" />
 </div>
 
+<div class = "text-center">
 
-<h3>
-  <a href="/users/edit/<%=currentUser.id%>">Edit Name</a>
-</h3>
-
-<h3>
-  <a href="/characters"> <%=currentUser.name%>'s Favorite Characters!</a>
-</h3>
-
-<h3>
-  <a href="/comics"> <%=currentUser.name%>'s Favorite Comics!</a>
-</h3>
-
-<h3>
-  <a href="/creators"> <%=currentUser.name%>'s Favorite Creators!</a>
-</h3>
+  <h4>
+    <a href="/users/edit/<%=currentUser.id%>">Edit Name</a>
+  </h4>
+  
+  <h3>
+    <a href="/characters"> <%=currentUser.name%>'s Favorite Characters!</a>
+  </h3>
+  
+  <h3>
+    <a href="/comics"> <%=currentUser.name%>'s Favorite Comics!</a>
+  </h3>
+  
+  <h3>
+    <a href="/creators"> <%=currentUser.name%>'s Favorite Creators!</a>
+  </h3>
+</div>
