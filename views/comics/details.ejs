@@ -21,16 +21,23 @@
     <p>
       Creators:
       <% for( let i = 0; i < detail.creators.items.length; i++ ) { %>
-        <%= detail.creators.items[i].name %> - Role:
-        <%= detail.creators.items[i].role %>,
+        <% const url =detail.creators.items[i].resourceURI
+        const lastSegment = url.split("/").pop() %>
+        <a href="/creators/<%= lastSegment%>">
+          <%= detail.creators.items[i].name %>
+        </a>
+        <%= detail.creators.items[i].role %> |
       <% } %>
+
     </p>
-    <p>
-     Characters:
-      <% for( let i = 0; i > detail.characters.items.length; i++ ) { %>
-        <%= detail.characters.items[i].name %>,
-      <% } %>
-    </p>
+    Characters:
+    <% chars.forEach(char => { %>
+      
+        <a href="/characters/<%= char.id%>">
+          <%= char.name %> |
+        </a>
+        
+      <% }) %>
     <p>
       Stories: <%= detail.stories.available %>
     </p>
@@ -43,6 +50,7 @@
       </a>
     </p>
   </div>
+
 
   <form method="POST" action="/comics">
     <input hidden type="text" name="title" value="<%= detail.title %>">

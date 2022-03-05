@@ -11,10 +11,12 @@
      <div class="col-md-8">
        <div class="card-body">
          <h5 class="card-title fs-1"><%= creator.name %></h5>
-         <p class="card-text fs-4">  Comics: <%= creator.comics %> </p>
-         <p class="card-text fs-4">  Series: <%= creator.series %> </p>
-         <p class="card-text fs-4">  Stories: <%= creator.stories %> </p>
-         <p class="card-text fs-4">  Events: <%= creator.events %> </p>
+         <p class="card-text fs-4">
+          Comics: <%= creator.comics %> 
+          | Series: <%= creator.series %> 
+          | Stories: <%= creator.stories %> 
+          | Events: <%= creator.events %> 
+        </p>
          <p class="card-text"><small class="text-muted">
           <form action="/creators/?_method=DELETE" method="POST">
             <input hidden name="creatorId" value="<%= creator.id %>">

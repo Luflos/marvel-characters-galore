@@ -24,8 +24,13 @@ router.get('/:comics_id', async (req, res) => {
     const comicDetails = response.data.data.results
     const attribution = response.data.attributionText
     const marvelUrl = response.data.data
-    // console.log(comicDetails)
-    res.render('comics/details.ejs', {details: comicDetails, attribution, marvelUrl})
+
+    const charUrl = (`http://gateway.marvel.com/v1/public/comics/${req.params.comics_id}/characters?&ts=${ts}&apikey=${pubKey}&hash=${reqHash}`)
+
+    const secondResponse = await axios.get(charUrl, options)
+    const charDetails = secondResponse.data.data.results
+
+    res.render('comics/details.ejs', {details: comicDetails, chars: charDetails, attribution, marvelUrl})
 
   } catch (err) {
     console.log(err)

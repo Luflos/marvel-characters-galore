@@ -25,7 +25,7 @@ router.get('/', async (req, res) => {
 
 router.get('/charresults', async (req, res) => {
   try {
-    const url = (`http://gateway.marvel.com/v1/public/characters?nameStartsWith=${req.query.searchMarvel}&limit=10&ts=${ts}&apikey=${pubKey}&hash=${reqHash}`)
+    const url = (`http://gateway.marvel.com/v1/public/characters?nameStartsWith=${req.query.searchMarvel}&limit=3&ts=${ts}&apikey=${pubKey}&hash=${reqHash}`)
     
     const response = await axios.get(url, options)
     const marvelChar = response.data.data.results
