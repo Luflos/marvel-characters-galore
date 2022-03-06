@@ -1,31 +1,35 @@
+<br>
 <h1 class="text-center">Comics:</h1>
 
-<% if (badData.count === 0) {%> 
-  <div class = 'd-flex justify-content-center'>
-       <img src = "/img/hulk.gif" />
-  </div>
-  <h1 class ='text-center'> No search results... Please try again!</h1>
+<div class ="text-center">
 
-<% } else { %>
-
-<% comics.forEach(comic=> { %>
-  <div>
-    <p>
-      Name: <%= comic.title %>
-    </p>
-    <p>
-      <% if ( comic.description !== null) { %>
-        Description: <%= comic.description %>
-      <% } %>
+  <% if (badData.count === 0) {%> 
+    <div class = 'd-flex justify-content-center'>
+      <img src = "/img/hulk.gif" />
+    </div>
+    <h1 class ='text-center'> No search results... Please try again!</h1>
+    
+    <% } else { %>
       
-    </p>
-    <p>
-      <img src='<%= comic.thumbnail.path%>/portrait_fantastic.jpg' alt="Picture of <%= comic.name %>"/>
-    </p>
-  </div>
-  <h1>
-    <a href="/comics/<%=comic.id %>"> More Details</a>
-
-  </h1>
-  <% }) %>
-<% } %>
+      <% comics.forEach(comic=> { %>
+        <div>
+          <p>
+            Name: <%= comic.title %>
+          </p>
+          <p>
+            <% if ( comic.description !== null) { %>
+              Description: <%= comic.description %>
+              <% } %>
+              
+            </p>
+            <p>
+              <img src='<%= comic.thumbnail.path%>/portrait_fantastic.jpg' alt="Picture of <%= comic.name %>"/>
+            </p>
+          </div>
+          <h1>
+            <a href="/comics/<%=comic.id %>"> More Details</a>
+            
+          </h1>
+          <% }) %>
+          <% } %>
+        </div>

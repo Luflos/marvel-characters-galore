@@ -1,33 +1,36 @@
+<br>
 <h1 class="text-center">Characters:</h1>
 
-<% if (badData.count===0) {%>
-  <div class='d-flex justify-content-center'>
-    <img src="/img/hulk.gif" />
-  </div>
-  <h1 class='text-center'> No search results... Please try again!</h1>
-
-  <% } else { %>
-
-    <% details.forEach(detail=> { %>
-      <div>
-        <p>
-          Name: <%= detail.name %>
-        </p>
-        <p>
-          <% if ( detail.description !=="" ) { %>
-            Description: <%= detail.description %>
+<div class ="text-center">
+  <% if (badData.count===0) {%>
+    <div class='d-flex justify-content-center'>
+      <img src="/img/hulk.gif" />
+    </div>
+    <h1 class='text-center'> No search results... Please try again!</h1>
+    
+    <% } else { %>
+      
+      <% details.forEach(detail=> { %>
+        <div>
+          <p>
+            Name: <%= detail.name %>
+          </p>
+          <p>
+            <% if ( detail.description !=="" ) { %>
+              Description: <%= detail.description %>
               <% } %>
-        </p>
-        <p>
-          <img src='<%= detail.thumbnail.path%>/portrait_incredible.jpg' alt="Picture of <%= detail.name %>" />
-        </p>
-      </div>
-      <h1>
+            </p>
+            <p>
+              <img src='<%= detail.thumbnail.path%>/portrait_incredible.jpg' alt="Picture of <%= detail.name %>" />
+            </p>
+          </div>
+          <h1>
         <a href="/characters/<%=detail.id %>"> More Details</a>
-
+        
       </h1>
       <% }) %>
-        <% } %>
-
-          <% details.forEach(detail=> { %>
-            <% }) %>
+      <% } %>
+      
+      <% details.forEach(detail=> { %>
+        <% }) %>
+      </div>
