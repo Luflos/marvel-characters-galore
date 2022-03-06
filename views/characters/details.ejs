@@ -1,6 +1,8 @@
-<h1 class = "text-center"> Details Page </h1>
-
+<br>
+<h1 class = "text-center"> Details </h1>
+<br>
 <% details.forEach(detail=> { %>
+
   <div class="container-xxl">
     <div class="card mb-3">
       <div class="row g-0">
@@ -11,8 +13,8 @@
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h2 class="card-title fs-1"><%= detail.name %></h2>
-            <p class="card-text fs-3">
+            <h2 class="card-title fs-1 fw-bold"><%= detail.name %></h2>
+            <p class="card-text fs-4">
               <% if ( detail.description === "") { %>
                 No description provided
                 <%} else { %>
@@ -44,7 +46,16 @@
   </div>
 
   <% comics.forEach(comic => { %>
-   <a href="/comics/<%=comic.id %>">
-    <img src='<%= comic.thumbnail.path%>/portrait_incredible.jpg' alt="Picture of <%= comic.title %>"/>
-  </a> 
+
+      <div class="card-group" style="max-width: 540px;">
+        <div class="card">
+          <img src="<%= comic.thumbnail.path%>/portrait_incredible.jpg" class="card-img-top" alt="Picture of <%= comic.title %>">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
   <% }) %>

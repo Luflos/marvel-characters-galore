@@ -1,39 +1,46 @@
-<h1> This is the Creators Detail Page </h1>
+<br>
+<h1 class = text-center> Creator: </h1>
+<br>
 
 <% details.forEach(detail=> { %>
-  <div>
-    <p>
-      Name: 
-      <a href="<%= urlToMarvel.results[0].urls[0].url %>"> 
-        <%= detail.fullName %>
-      </a>
-    </p>
-    <p>
-        Comics: <%= detail.comics.available %>
-        <br>
-        Series: <%= detail.series.available %>
-        <br>
-        Stories: <%= detail.stories.available %>
-        <br>
-        Events: <%= detail.events.available %>
-    </p>
-    <p>
-        <img src='<%= detail.thumbnail.path%>.jpg' alt="Picture of <%= detail.fullName %>"/>
-    </p>
+
+<div class="card mb-3" >
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src='<%= detail.thumbnail.path%>.jpg' class="img-fluid rounded-start" alt="Picture of <%= detail.fullName %>"/>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title fs-1"><a href="<%= urlToMarvel.results[0].urls[0].url %>"> 
+          <%= detail.fullName %>
+        </a></h5>
+        <p class="card-text fs-3"> Comics: <%= detail.comics.available %>
+          <br>
+          Series: <%= detail.series.available %>
+          <br>
+          Stories: <%= detail.stories.available %>
+          <br>
+          Events: <%= detail.events.available %></p>
+          <form method="POST" action="/creators">
+            <input hidden type="text" name="name" value="<%= detail.fullName %>">
+            <input hidden type="text" name="comics" value="<%= detail.comics.available %>">
+            <input hidden type="text" name="series" value="<%= detail.series.available %>">
+            <input hidden type="text" name="stories" value="<%= detail.stories.available %>">
+            <input hidden type="text" name="events" value="<%= detail.events.available %>">
+            <input hidden type="text" name="thumbnail" value="<%= detail.thumbnail.path%>.jpg">
+            <button class="btn btn-outline-light" type="submit">Add to Favorites</button>
+          </form>
+          <br>
+        <p class="card-text"><small class="text-muted"><%= attribution %></small></p>
+      </div>
+    </div>
   </div>
+</div>
+<% }) %>
 
-  <form method="POST" action="/creators">
-    <input hidden type="text" name="name" value="<%= detail.fullName %>">
-    <input hidden type="text" name="comics" value="<%= detail.comics.available %>">
-    <input hidden type="text" name="series" value="<%= detail.series.available %>">
-    <input hidden type="text" name="stories" value="<%= detail.stories.available %>">
-    <input hidden type="text" name="events" value="<%= detail.events.available %>">
-    <input hidden type="text" name="thumbnail" value="<%= detail.thumbnail.path%>.jpg">
-    <button type="submit">Add to Favorites</button>
-  </form>
-  <% }) %>
+<br>
 
-  <br>
+
   
   <% comics.forEach(comic => { %>
     <a href="/comics/<%=comic.id %>">
@@ -44,3 +51,4 @@
   <p>
     <%= attribution %>
   </p>
+

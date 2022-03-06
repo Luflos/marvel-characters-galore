@@ -1,64 +1,69 @@
-<h1> this is the comic page </h1>
+<br>
+<h1 class=text-center> Comic Details </h1>
+<br>
 
 <% details.forEach(detail=> { %>
-  <div>
-    <p>
-      Title: <%= detail.title %>
-    </p>
-    <p> 
-      <% if (detail.description === null) { %>
-        No description provided
-        <%} else { %>
-        Description: <%= detail.description %>
-      <% } %>
-    </p>
-    <p>
-      Series: <%= detail.series.name %>
-    </p>
-    <p>
-      Price: <%= detail.prices[0].price %>
-    </p>
-    <p>
-      Creators:
-      <% for( let i = 0; i < detail.creators.items.length; i++ ) { %>
-        <% const url =detail.creators.items[i].resourceURI
-        const lastSegment = url.split("/").pop() %>
-        <a href="/creators/<%= lastSegment%>">
-          <%= detail.creators.items[i].name %>
-        </a>
-        <%= detail.creators.items[i].role %> |
-      <% } %>
-
-    </p>
-    Characters:
-    <% chars.forEach(char => { %>
-      
-        <a href="/characters/<%= char.id%>">
-          <%= char.name %> |
-        </a>
-        
-      <% }) %>
-    <p>
-      Stories: <%= detail.stories.available %>
-    </p>
-    <p>
-      Events: <%= detail.events.available %>
-    </p>
-    <p>
-      <a href="<%= marvelUrl.results[0].urls[0].url %>">
-        <img src='<%= detail.thumbnail.path%>.jpg' alt="Picture of <%= detail.title %>"/>
-      </a>
-    </p>
+  <div class="container-xl">
+    <div class="card mb-3">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <a href="<%= marvelUrl.results[0].urls[0].url %>">
+            <img src='<%= detail.thumbnail.path%>.jpg' class="img-fluid rounded-start"
+              alt="Picture of <%= detail.title %>" />
+          </a>
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h2 class="card-title fs-1">
+              <%= detail.title %>
+            </h2>
+            <p class="card-text fs-4">
+              Series: <%= detail.series.name %>
+            </p>
+            <p class="card-text fs-3">
+              <% if ( detail.description==="" ) { %>
+                No description provided
+                <%} else { %>
+                  Description: <%= detail.description %>
+                    <% } %>
+            </p>
+            <p class="card-text fs-4">
+              Creators:
+              <% for( let i=0; i < detail.creators.items.length; i++ ) { %>
+                <% const url=detail.creators.items[i].resourceURI
+                const lastSegment=url.split("/").pop() %>
+                  <a href="/creators/<%= lastSegment%>">
+                    <%= detail.creators.items[i].name %>
+                    </a> 
+                    <%=detail.creators.items[i].role%> |
+                    <% } %>
+            </p>
+            <p class="card-text fs-4">
+            Characters:
+            <% chars.forEach(char=> { %>
+              <a href="/characters/<%= char.id%>">
+                <%= char.name %> |
+              </a>
+            </p>
+              <% }) %>
+                <p class='fs-5'>
+                  Stories: <%= detail.stories.available %>
+                    | Events: <%= detail.events.available %>
+                </p>
+                <form method="POST" action="/comics">
+                  <input hidden type="text" name="title" value="<%= detail.title %>">
+                  <input hidden type="text" name="description" value="<%= detail.description %>">
+                  <input hidden type="text" name="series" value="<%= detail.series.name %>">
+                  <input hidden type="text" name="thumbnail" value="<%= detail.thumbnail.path%>.jpg">
+                  <button type="submit">Add to Favorites</button>
+                </form>
+                </small> </p>
+                <p class="card-text"><small class="text-muted">
+                    <%= attribution %>
+                  </small></p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-
-  <form method="POST" action="/comics">
-    <input hidden type="text" name="title" value="<%= detail.title %>">
-    <input hidden type="text" name="description" value="<%= detail.description %>">
-    <input hidden type="text" name="series" value="<%= detail.series.name %>">
-    <input hidden type="text" name="thumbnail" value="<%= detail.thumbnail.path%>.jpg">
-    <button type="submit">Add to Favorites</button>
-  </form>
-
-  <%= attribution %>
   <% }) %>
