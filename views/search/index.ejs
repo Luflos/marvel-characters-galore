@@ -34,9 +34,16 @@
   </div>
   
   <% } else { %>
+    <br>
     <div class = 'd-flex justify-content-center'>
       <img src = "/img/hulk.gif" />
     </div>
-    <h1 class ='text-center'> Please Sign Up or Login!</h1>
+    <br>
+    <h1 class ='text-center'>
+      Please
+      <a href="/users/new" class="text-decoration-none">Sign Up</a>
+      or
+      <a href="/users/login" class="text-decoration-none">Login</a> !
+    </h1>
    
  <% } %>

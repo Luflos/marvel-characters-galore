@@ -30,7 +30,7 @@ router.get('/charresults', async (req, res) => {
     const response = await axios.get(url, options)
     const marvelChar = response.data.data.results
     const badData = response.data.data
-    console.log(badData.count)
+    // console.log(badData.count)
     res.render('search/charresults.ejs', {details: marvelChar, badData})
 
   } catch (err) {
