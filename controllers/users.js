@@ -4,6 +4,7 @@ const router = express.Router();
 const bcrypt = require("bcrypt");
 const cryptojs = require("crypto-js");
 require('dotenv').config()
+const axios = require('axios')
 
 router.get('/profile', (req, res) => {
   res.render('users/profile.ejs')
@@ -94,7 +95,5 @@ router.put("/:id", async (req, res) => {
 router.get("/edit/:id", (req, res) => {
   res.render("users/edit.ejs");
 });
-
-
 
 module.exports = router;

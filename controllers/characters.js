@@ -61,6 +61,7 @@ router.post('/', async (req, res) => {
 // Show User Favorites
 router.get('/', async (req, res) => {
     const charArray = await res.locals.currentUser.getCharacters()
+    // console.log(charArray)
     res.render('characters/favorites.ejs', {charArray})
 })
 

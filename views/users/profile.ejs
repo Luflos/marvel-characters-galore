@@ -7,19 +7,70 @@
 </div>
 
 <div class = "text-center">
-  <h4>
-    <a href="/users/edit/<%=currentUser.id%>">Edit Name</a>
-  </h4>
+  <p>
+    <a class = "text-decoration-none" href="/users/edit/<%=currentUser.id%>">Edit Name</a>
+  </p>
   
   <h3>
-    <a href="/characters"> <%=currentUser.name%>'s Favorite Characters!</a>
+    <%=currentUser.name%>'s Favorite
+    <br>
+    <a class = "text-decoration-none" href="/characters"> Characters |</a>
+    <a class = "text-decoration-none" href="/comics"> Comics |</a>
+    <a class = "text-decoration-none" href="/creators">Creators |</a>
   </h3>
-  
+</div>
+
+<br>
+<div class="text-center">
   <h3>
-    <a href="/comics"> <%=currentUser.name%>'s Favorite Comics!</a>
+    Check out some of these comics
   </h3>
-  
-  <h3>
-    <a href="/creators"> <%=currentUser.name%>'s Favorite Creators!</a>
-  </h3>
+  <div class="container">
+  <div class="row row-cols-1 row-cols-md-4 g-4">
+    <div class="col">
+      <div class="card h-100">
+        <a href="/comics/97234">
+          <img src="/img/comics/Moon.jpg" class="card-img-top" alt="Moon Knight Comic">
+        </a>
+        <div class="card-body">
+          <h5 class="card-title">Moon Knight By Lemire & Smallwood: The Complete Collection (Trade Paperback)</h5>
+          <p class="card-text"></p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <a href="/comics/69111">
+        <img src="/img/comics/msmarvel.jpg" class="card-img-top" alt="Ms. Marvel comic">
+        </a>
+        <div class="card-body">
+          <h5 class="card-title">MS. MARVEL VOL. 9: TEENAGE WASTELAND TPB (Trade Paperback)</h5>
+          <p class="card-text"></p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <a href="/comics/71911">
+          <img src="/img/comics/shehulk.jpg" class="card-img-top" alt="She-Hulk comic">
+        </a>
+        <div class="card-body">
+          <h5 class="card-title">She-Hulk by Soule & Pulido: The Complete Collection (Trade Paperback)</h5>
+          <p class="card-text"></p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <a href="/comics/78459">
+          <img src="/img/comics/100.jpg" class="card-img-top" alt="Marvel Comics">
+        </a>
+        <div class="card-body">
+          <h5 class="card-title">Marvel Comics (2019) #1000 (Variant)</h5>
+          <p class="card-text"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 </div>
