@@ -40,29 +40,31 @@
         </div>
       </div>
     </div>
-    </div>
-    <% }) %>
+  </div>
+  <% }) %>
 
-      <br>
+    <br>
 
-      <div class="card-group">
-        <% comics.forEach(comic=> { %>
-          <div class="card">
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+      <% comics.forEach(comic=> { %>
+        <div class="col">
+          <div class="card h-100">
             <a href="/comics/<%=comic.id %>">
-              <img src='<%= comic.thumbnail.path%>/portrait_incredible.jpg' class="card-img-top"
+              <img src='<%= comic.thumbnail.path%>/portrait_uncanny.jpg' class="card-img-top"
                 alt="Picture of <%= comic.title %>" />
             </a>
             <div class="card-body">
-              <h5 class="card-title">
+              <h5 class="card-title text-center">
                 <%= comic.title %>
               </h5>
               <p class="card-text"></p>
             </div>
-            <div class="card-footer">
+            <div class="card-footer text-center">
               <small class="text-muted">
                 <%= attribution %>
               </small>
             </div>
           </div>
-          <% }) %>
-      </div>
+        </div>
+        <% }) %>
+    </div>

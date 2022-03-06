@@ -11,8 +11,8 @@
      <div class="col-md-8">
        <div class="card-body">
          <h5 class="card-title fs-2 fw-bold"><%= comic.title %></h5>
-         <p class="card-text fs-4">  <%= comic.description %> </p>
-         <p class="card-text fs-4"> Series: <%= comic.series %> </p>
+         <p class="card-text fs-5">  <%= comic.description %> </p>
+         <p class="card-text "> Series: <%= comic.series %> </p>
          <p class="card-text"><small class="text-muted">
           <form action="/comics/?_method=DELETE" method="POST">
             <input hidden name="comicId" value="<%= comic.id %>">
