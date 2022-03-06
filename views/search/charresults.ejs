@@ -1,6 +1,6 @@
 <br>
 
-<div class ="text-center">
+
   <% if (badData.count===0) {%>
     <h1 class='text-center'> No search results... Please try again!</h1>
     
@@ -10,28 +10,25 @@
     
     <% } else { %>
       <h1 class="text-center">Characters:</h1>
-      
+      <br>
       <% details.forEach(detail=> { %>
-        <div>
-          <p>
-            Name: <%= detail.name %>
-          </p>
-          <p>
-            <% if ( detail.description !=="" ) { %>
-              Description: <%= detail.description %>
-              <% } %>
-            </p>
-            <p>
-              <img src='<%= detail.thumbnail.path%>/portrait_incredible.jpg' alt="Picture of <%= detail.name %>" />
-            </p>
-          </div>
-          <h1>
-        <a href="/characters/<%=detail.id %>"> More Details</a>
-        
-      </h1>
+        <div class="container" style="max-width: 840px">
+          <div class="card mb-3">
+           <div class="row g-0">
+             <div class="col-md-4">
+               <img src='<%= detail.thumbnail.path%>.jpg' class="img-fluid rounded-start" alt="Picture of <%= detail.name %>" />
+             </div>
+             <div class="col-md-8">
+               <div class="card-body">
+                 <h5 class="card-title fs-1 fw-bold"><%= detail.name %></h5>
+                 <p class="card-text fs-4">  <% if ( detail.description !=="" ) { %>
+                  <%= detail.description %>
+                  <% } %> </p>
+                  <p class="card-text"><small class="text-muted"><a href="/characters/<%=detail.id %>"> More Details</a></small></p>
+               </div>
+             </div>
+           </div>
+         </div>
+        </div>
       <% }) %>
       <% } %>
-      
-      <% details.forEach(detail=> { %>
-        <% }) %>
-      </div>

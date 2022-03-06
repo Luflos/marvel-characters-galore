@@ -27,25 +27,25 @@
                   Description: <%= detail.description %>
                     <% } %>
             </p>
-            <p class="card-text fs-4">
+            <p class="card-text fs-4 ">
               Creators:
               <% for( let i=0; i < detail.creators.items.length; i++ ) { %>
                 <% const url=detail.creators.items[i].resourceURI
                 const lastSegment=url.split("/").pop() %>
-                  <a href="/creators/<%= lastSegment%>">
+                  <a class = "text-decoration-none" href="/creators/<%= lastSegment%>">
                     <%= detail.creators.items[i].name %>
+                    (<%=detail.creators.items[i].role%>)
                     </a> 
-                    <%=detail.creators.items[i].role%> |
-                    <% } %>
+                    |<% } %>
             </p>
             <p class="card-text fs-4">
             Characters:
             <% chars.forEach(char=> { %>
-              <a href="/characters/<%= char.id%>">
-                <%= char.name %> |
-              </a>
-            </p>
+              <a class = "text-decoration-none" href="/characters/<%= char.id%>">
+                <%= char.name %> 
+              </a> |
               <% }) %>
+            </p>
                 <p class='fs-5'>
                   Stories: <%= detail.stories.available %>
                     | Events: <%= detail.events.available %>
