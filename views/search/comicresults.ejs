@@ -1,6 +1,5 @@
 <br>
 
-<div class ="text-center">
   <% if (badData.count===0) {%>
     <h1 class='text-center'> No search results... Please try again!</h1>
     
@@ -9,26 +8,34 @@
     </div>
     
     <% } else { %>
-      
+      <div class = "text-center">
+      <h1> Comics:</h1>
+      <br>
       <% comics.forEach(comic=> { %>
-        <div>
-          <p>
-            Name: <%= comic.title %>
-          </p>
-          <p>
-            <% if ( comic.description !== null) { %>
-              Description: <%= comic.description %>
-              <% } %>
-              
-            </p>
-            <p>
-              <img src='<%= comic.thumbnail.path%>/portrait_fantastic.jpg' alt="Picture of <%= comic.name %>"/>
-            </p>
+        <div class="container" style="max-width: 740px;">
+          <div class="card mb-4" >
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src='<%= comic.thumbnail.path%>/portrait_uncanny.jpg' class="img-fluid rounded-start" alt="Picture of <%= comic.name %>"/>
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title fs-1"><%= comic.title %></h5>
+                  <p class="card-text">
+                    <% if ( comic.description !== null) { %>
+                    Description: <%= comic.description %>
+                    <% } %>
+                  </p>
+                  <p class="card-text"> <small class="text-muted">
+                    <a href="/comics/<%=comic.id %>"> More Details</a>
+                  </small>
+                </p>
+                </div>
+              </div>
+            </div>
           </div>
-          <h1>
-            <a href="/comics/<%=comic.id %>"> More Details</a>
-            
-          </h1>
-          <% }) %>
-          <% } %>
         </div>
+          <% }) %>
+        </div>
+          <% } %>
+

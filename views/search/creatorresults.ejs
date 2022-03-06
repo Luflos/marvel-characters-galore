@@ -1,28 +1,39 @@
 <br>
 
-<div class ="text-center">
-  <% if (badData.count===0) {%>
-    <h1 class='text-center'> No search results... Please try again!</h1>
-    
-    <div class='d-flex justify-content-center'>
-      <img src="/img/hulk.gif" />
-    </div>
-    
-    <% } else { %>
-      
+<% if (badData.count===0) {%>
+  <h1 class='text-center'> No search results... Please try again!</h1>
+  
+  <div class='d-flex justify-content-center'>
+    <img src="/img/hulk.gif" />
+  </div>
+  
+  <% } else { %>
+    <div class ="text-center">
+      <h1> Creators:</h1>
+      <br>
       <% creators.forEach(creator=> { %>
-        <div>
-          <p>
-            Name: <%= creator.fullName %>
-          </p>
-          <p>
-            <img src='<%= creator.thumbnail.path%>/portrait_fantastic.jpg' alt="Picture of <%= creator.fullName %>"/>
-          </p>
+        <div class="container" style="max-width: 740px;">
+          <div class="card mb-4" >
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src='<%= creator.thumbnail.path%>.jpg' class="img-fluid rounded-start" alt="Picture of <%= creator.fullName %>"/>
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title fs-1">
+                    <%= creator.fullName %>
+                  </h5>
+                  <p class="card-text">
+                  </p>
+                  <p class="card-text"> <small class="text-muted">
+                    <a href="/creators/<%=creator.id %>"> More Details</a>
+                  </small>
+                </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <h1>
-          <a href="/creators/<%=creator.id %>"> More Details</a>
-          
-        </h1>
         <% }) %>
-        <% } %>
       </div>
+        <% } %>
