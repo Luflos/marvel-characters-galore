@@ -1,31 +1,35 @@
 <br>
-<h1 class = "text-center"> My favorite characters </h1>
+<h1 class="text-center"> My favorite characters </h1>
 <br>
 
-<% charArray.forEach(char => { %>
+<% charArray.forEach(char=> { %>
   <div class="container">
     <div class="card mb-3">
-     <div class="row g-0">
-       <div class="col-md-4">
-         <img src="<%=char.thumbnail%>" class="img-fluid rounded-start" alt="Picture of <%= char.name %>">
-       </div>
-       <div class="col-md-8">
-         <div class="card-body">
-           <h5 class="card-title fs-1 fw-bold"><%= char.name %></h5>
-           <p class="card-text fs-4">  <%= char.description %> </p>
-           <p class="card-text"><small class="text-muted">
-             <form action="/characters/?_method=DELETE" method="POST">
-             <input hidden name="characterId" value="<%= char.id %>">
-             <button class="btn btn-outline-light" type="submit">Remove from favorites</button>
-           </form>
-         </small> </p>
-         <p class="card-text"><small class="text-muted">
-           Data provided by Marvel. © 2022 Marvel
-         </small> </p>
-         </div>
-       </div>
-     </div>
-   </div>
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="<%=char.thumbnail%>" class="img-fluid rounded-start" alt="Picture of <%= char.name %>">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title fs-1 fw-bold">
+              <%= char.name %>
+            </h5>
+            <p class="card-text fs-4">
+              <%= char.description %>
+            </p>
+            <p class="card-text"><small class="text-muted">
+                <form action="/characters/?_method=DELETE" method="POST">
+                  <input hidden name="characterId" value="<%= char.id %>">
+                  <button class="btn btn-outline-light" type="submit">Remove from favorites</button>
+                </form>
+              </small> </p>
+            <p class="card-text"><small class="text-muted">
+                Data provided by Marvel. © 2022 Marvel
+              </small> </p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
-<% }) %>
+  <% }) %>

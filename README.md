@@ -3,9 +3,9 @@
 An application that allows users to search for Marvel characters, comics, and creators. They can add their favorites and save them into a profile for others to see. Users also have the ability to learn in depth about their favorite characters and all the comics that they are featured in as well!
 
 ## User Stories
-More and more Marvel characters are being added to the MCU (Marvel Cinematic Universe) and not all of them are well known
+More and more Marvel characters are being added to the MCU (Marvel Cinematic Universe) and not all of them are well known.
 * As a user, I want to know more about the origins of my favorite Marvel characters or ones I haven't heard about
-* As a user, I want to add characters, comics, or authors that I find interesting to a list so I can reference them later
+* As a user, I want to add characters, comics, or authors that I find interesting to a list so I can reference later
 * As a user, I want more details about specific comics, and authors
 
 ## Deployment Link
