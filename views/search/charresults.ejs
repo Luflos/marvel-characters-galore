@@ -6,7 +6,15 @@
     <div class='d-flex justify-content-center'>
       <img src="/img/hulk.gif" />
     </div>
-    
+
+    <br>
+    <div class="text-center">
+      <a class ="text-decoration-none fs-1" href="/search">Return to search!</a>
+    </div>
+
+      <br>
+
+
     <% } else { %>
       <h1 class="text-center">Characters:</h1>
       <br>
@@ -24,7 +32,8 @@
                   <% if ( detail.description !=="" ) { %>
                   <%= detail.description %>
                   <% } %> </p>
-                  <p class="card-text"><small class="text-muted"><a href="/characters/<%=detail.id %>"> More Details</a></small></p>
+                  <p class="card-text"><small class="text-muted">
+                    <a class = "text-decoration-none" href="/characters/<%=detail.id %>"> More Details</a></small></p>
                </div>
              </div>
            </div>

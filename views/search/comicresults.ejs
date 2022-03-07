@@ -6,7 +6,12 @@
     <div class='d-flex justify-content-center'>
       <img src="/img/hulk.gif" />
     </div>
-    
+
+    <br>
+    <div class="text-center">
+      <a class ="text-decoration-none fs-1" href="/search">Return to search!</a>
+    </div>
+
     <% } else { %>
       <div class = "text-center">
       <h1> Comics:</h1>
@@ -27,7 +32,7 @@
                     <% } %>
                   </p>
                   <p class="card-text"> <small class="text-muted">
-                    <a href="/comics/<%=comic.id %>"> More Details</a>
+                    <a class = "text-decoration-none" href="/comics/<%=comic.id %>"> More Details</a>
                   </small>
                 </p>
                 </div>

@@ -1,23 +1,30 @@
-<% if (error) { %> 
-  <em> <%= error %> </em>
-<% } %>
+<% if (error) { %>
+  <em>
+    <%= error %>
+  </em>
+  <% } %>
 
-<br>
-<div class ="text-center fs-4">
-<form class='justify-center' action="/users/login" method="post">
-  <label class = "fs-4" for="email">Email:</label>
-  <input type="email" name="email" id="email">
-  <br>
-  <label class = "fs-4" for="password">Password:</label>
-  <input type="password" name="password" id="password">
-  <br>
-  <br>
-  <button type="submit">Login!</button>
-  <!-- <input type="submit" value="Login!"> -->
-</form>
-<br>
-</div>
+    <br>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-3 text-center">
+          <form class="form-group" action="/users/login" method="post">
+            <div class="form-floating mb-3">
+              <input type="email" name="email" class="form-control" id="floatingInput" placeholder="email@email.com">
+              <label for="floatingInput">Email address</label>
+            </div>
+            <div class="form-floating">
+              <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+              <label for="floatingPassword">Password</label>
+            </div>
+            <br>
+            <button class="btn btn-dark" type="submit">Login!</button>
+          </form>
+        </div>
+      </div>
+    </div>
 
-  <div class = 'd-flex justify-content-center'>
-    <img src = "/img/ironman.gif" />
-  </div>
+    <br>
+    <div class='d-flex justify-content-center'>
+      <img src="/img/ironman.gif" />
+    </div>

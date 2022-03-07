@@ -44,7 +44,7 @@ More and more Marvel characters are being added to the MCU (Marvel Cinematic Uni
 ## API
 *  <a href="https://developer.marvel.com/">Marvel Comic API</a>
 
-## Wireframes
+## Wireframes / Planning
 * Homepage
 ![Index](./wireframes/Index.jpg)
 * User Profile Page
@@ -66,25 +66,65 @@ More and more Marvel characters are being added to the MCU (Marvel Cinematic Uni
 ![an ERD of my project](./ERD.drawio.png)
 
 ### Final Design
-* Homepage
+ Homepage
 ![Index](./public/img/framework/Homepage.jpg)
-* User Profile Page
+ User Profile Page
 ![Profile](./public/img/framework/profile.jpg)
-* Search Page
+ Search Page
 ![Search](./public/img/framework/Search.jpg)
-* Characters Page
+ Characters Page
 ![Characters](./public/img/framework/characters.jpg)
-* Comics Page
+ Comics Page
 ![Comics](./public/img/framework/comics.jpg)
 
-## ** MVP **
+##  MVP 
 - [x] Homepage that allows users to signup / login 
 - [x] Have a navbar which leads to a users profile, homepage, favorites, and logout
-- [x] User favorites page that displays their favorite chracter, creator, event, stories
-- [x] User able to search for chracters by name or creator
+- [x] User favorites page that displays their favorite characters, creators, and comics
+- [x] User able to search for characters by name or creator
 - [x] Have detailed pages for characters, comics, and creators
 - [x] Clicking on a comic directs to the detailed page about the comics
 
 ## Stretch Goals
-* Have the comics be able to flip front and back
-* Use another API to display upcoming MCU films
+- [] Have the comics be able to flip front and back
+- [] Use another API to display upcoming MCU films
+
+## Code Highlights
+
+```javascript
+const options = {
+  headers: {
+    'Accept': 'application/json'
+  }
+}
+
+const pubKey = process.env.MARVEL_PUBLIC_KEY
+const privKey = process.env.MARVEL_PRIVATE_KEY
+const ts = new Date().getTime()
+const reqHash = createHash('md5').update(ts + privKey + pubKey).digest('hex')
+
+router.get('/charresults', async (req, res) => {
+  try {
+    const url = (`http://gateway.marvel.com/v1/public/characters?nameStartsWith=${req.query.searchMarvel}&limit=8&ts=${ts}&apikey=${pubKey}&hash=${reqHash}`)
+    
+    const response = await axios.get(url, options)
+    const marvelChar = response.data.data.results
+    const badData = response.data.data
+    res.render('search/charresults.ejs', {details: marvelChar, badData})
+```
+    
+```javascript
+    Creators:
+ <% for( let i=0; i < detail.creators.items.length; i++ ) { %>
+   <% const url=detail.creators.items[i].resourceURI
+      const lastSegment=url.split("/").pop() %>
+     <a class = "text-decoration-none" href="/creators/<%= lastSegment%>">
+       <%= detail.creators.items[i].name %>
+       (<%=detail.creators.items[i].role%>)
+       </a> 
+       |<% } %>
+```
+
+## Resources 
+- https://giphy.com/  
+
