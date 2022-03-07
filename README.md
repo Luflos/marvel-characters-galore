@@ -15,20 +15,22 @@ More and more Marvel characters are being added to the MCU (Marvel Cinematic Uni
 - Fork and clone the code and run `npm i` 
   <details>
     <summary> NPM </summary>
-    -axios
-    -bcrypt
-    -cookie
-    -crypto
-    -dotenv
-    -ejs 
-    -expres
-    -express-ejs-layouts
-    -method-override
-    -pg
-    -sequelize
-    -sequelize-cli
+
+    - axios
+    - bcrypt
+    - cookie
+    - crypto
+    - dotenv
+    - ejs 
+    - expres
+    - express-ejs-layouts
+    - method-override
+    - pg
+    - sequelize
+    - sequelize-cli
 
   </details>
+
 - Run `create database marvel_characters` (`createdb marvel_characters` on non WSL)
 - Run `sequelize db:migrate` to create the tables
 - Go to "https://developer.marvel.com/" to request API keys
@@ -79,21 +81,37 @@ PORT=(WhateverPortYouWant)
 ## Wireframes / Planning
 <details>
   <summary> Initial Planning </summary>
+
 * Homepage
+
 ![Index](./wireframes/Index.jpg)
+
 * User Profile Page
+
 ![Profile](./wireframes/Profile.jpg)
+
 * User Favorites Page
+
 ![Faves](./wireframes/Faves.jpg)
+
 * Search Page
+
 ![Search](./wireframes/Search.jpg)
+
 * Search Results Page
+
 ![Search-Results](./wireframes/Search-Results.jpg)
+
 * Characters Page
+
 ![Characters](./wireframes/Characters.jpg)
+
 * Creator Page
+
 ![Creator](./wireframes/Creator.jpg)
+
 * Comics Page
+
 ![Comics](./wireframes/Comics.jpg)
 
 </details>
@@ -102,6 +120,10 @@ PORT=(WhateverPortYouWant)
 ![an ERD of my project](./ERD.drawio.png)
 
 ### Final Design
+
+<details>
+  <summary> Screenshots </summary>
+
  Homepage
 ![Index](./public/img/framework/Homepage.jpg)
  User Profile Page
@@ -112,6 +134,8 @@ PORT=(WhateverPortYouWant)
 ![Characters](./public/img/framework/characters.jpg)
  Comics Page
 ![Comics](./public/img/framework/comics.jpg)
+
+</details>
 
 ##  MVP 
 - [x] Homepage that allows users to signup / login 
@@ -164,11 +188,12 @@ router.get('/charresults', async (req, res) => {
 ## Reflection
 
 It's crazy to me that just 6 weeks ago I knew almost nothing about coding but here I am now making a web app.
-I struggled a lot with this project and although I'm not fully satisfied by how my app looks I'm still proud of it.
+I struggled a lot with this project and although I'm not fully satisfied by how my app looks but I'm still proud of it.
 I initially struggled a lot with the models and the various relationships. As I continued to work on the project those things started to click more but I definitely still need to review a lot more as well. 
 I wanted to get to some of my stretch goals but I spent so much time just styling small things here and there that I never got to them.
+I also couldn't really find a good free APIs to display upcoming Marvel movies/shows. I found one that I potentially wanted to use but they requested I provide my address and I wasn't fully comfortable with that.
 I was honestly held back by the limits of the API. A lot of details aren't provided and a lot of images and descriptions are empty.
-Overall, even though I struggled a lot, I still had fun making this project.
+Overall, even though I struggled a lot I still had fun making this project.
 
 ## Resources 
 - Data provided by Marvel. © 2022 MARVEL
