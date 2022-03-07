@@ -11,6 +11,37 @@ More and more Marvel characters are being added to the MCU (Marvel Cinematic Uni
 ## Deployment Link
 <a href="https://marvel-characters-galore.herokuapp.com/">Marvel Characters Galore</a>
 
+## Installation Instructions
+- Fork and clone the code and run `npm i` 
+  <details>
+    <summary> NPM </summary>
+    -axios
+    -bcrypt
+    -cookie
+    -crypto
+    -dotenv
+    -ejs 
+    -expres
+    -express-ejs-layouts
+    -method-override
+    -pg
+    -sequelize
+    -sequelize-cli
+
+  </details>
+- Run `create database marvel_characters` (`createdb marvel_characters` on non WSL)
+- Run `sequelize db:migrate` to create the tables
+- Go to "https://developer.marvel.com/" to request API keys
+- You will receive a Public and a Private API key. Both are needed.
+- Create a `.env` file and copy the keys into the file.
+- The file should look like:
+```
+SECRET=(whateverYouWantItToBe)
+MARVEL_PUBLIC_KEY=(YourPublicApiKey)
+MARVEL_PRIVATE_KEY=(YourPrivateApiKey)
+PORT=(WhateverPortYouWant)
+```
+
 ## Routes
 | **HTTP Verb**| **URL** |  **Action**| **Description**
 |------------|-------------|------------|------------|
@@ -40,11 +71,14 @@ More and more Marvel characters are being added to the MCU (Marvel Cinematic Uni
 * Postgres
 * Bootstrap
 * Sequelize
+* Marvel Comic API
 
 ## API
 *  <a href="https://developer.marvel.com/">Marvel Comic API</a>
 
 ## Wireframes / Planning
+<details>
+  <summary> Initial Planning </summary>
 * Homepage
 ![Index](./wireframes/Index.jpg)
 * User Profile Page
@@ -61,6 +95,8 @@ More and more Marvel characters are being added to the MCU (Marvel Cinematic Uni
 ![Creator](./wireframes/Creator.jpg)
 * Comics Page
 ![Comics](./wireframes/Comics.jpg)
+
+</details>
 
 ## ERD
 ![an ERD of my project](./ERD.drawio.png)
@@ -124,6 +160,15 @@ router.get('/charresults', async (req, res) => {
        </a> 
        |<% } %>
 ```
+
+## Reflection
+
+It's crazy to me that just 6 weeks ago I knew almost nothing about coding but here I am now making a web app.
+I struggled a lot with this project and although I'm not fully satisfied by how my app looks I'm still proud of it.
+I initially struggled a lot with the models and the various relationships. As I continued to work on the project those things started to click more but I definitely still need to review a lot more as well. 
+I wanted to get to some of my stretch goals but I spent so much time just styling small things here and there that I never got to them.
+I was honestly held back by the limits of the API. A lot of details aren't provided and a lot of images and descriptions are empty.
+Overall, even though I struggled a lot, I still had fun making this project.
 
 ## Resources 
 - Data provided by Marvel. © 2022 MARVEL
